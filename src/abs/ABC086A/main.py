@@ -3,6 +3,10 @@ import sys
 
 
 def solve(a: int, b: int):
+    if((a * b)%2 == 0):
+        print("Even")
+    else:
+        print("Odd")
     return
 
 
