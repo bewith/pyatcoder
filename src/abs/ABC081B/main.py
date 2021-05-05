@@ -5,6 +5,12 @@ MOD = 2  # type: int
 
 
 def solve(N: int, A: "List[int]"):
+    ret = 0
+    while(next(filter(lambda x: x % 2 == 1, A), None) == None):
+        ret += 1
+        A = list(map(lambda x: x / 2, A))
+
+    print(ret)
     return
 
 
