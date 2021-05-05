@@ -2,6 +2,7 @@ version: '3'
 
 services:
   pypy-python:
+    user: "1000:1000"
     build: .
     volumes:
       - ./src/:/src

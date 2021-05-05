@@ -20,3 +20,15 @@ RUN pip install pipenv && \
 # 5. pypy環境構築
 COPY src/requirements.txt .
 RUN pip install -r requirements.txt
+
+
+# ユーザーIDをセット
+ARG UID=1000
+# グループIDをセット
+ARG GID=1000
+# コンテナ内に名称dockerでグループを作成
+RUN groupadd -g ${GID} ubuntu
+# コンテナ内に名称dockerでdockerグループに所属するユーザーを作成
+RUN useradd -u ${UID} -g ${GID} -s /bin/bash -m ubuntu
+# コンテナを実行するユーザーを指定
+USER ${UID}

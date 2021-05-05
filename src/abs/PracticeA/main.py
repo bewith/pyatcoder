@@ -3,6 +3,7 @@ import sys
 
 
 def solve(a: int, b: int, c: int, s: str):
+    print("{} {}".format(a+b+c, s))
     return
 
 
