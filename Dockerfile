@@ -21,14 +21,13 @@ RUN pip install pipenv && \
 COPY src/requirements.txt .
 RUN pip install -r requirements.txt
 
+# 6. atcodertoolsでsubmitできない不具合のパッチ適用
+# https://github.com/kyuridenamida/atcoder-tools/pull/208
+COPY src/language.py /opt/pypy/site-packages/atcodertools/common/
 
-# ユーザーIDをセット
+# 7. ubuntuユーザー/グループの作成
+# https://wonwon-eater.com/docker-non-root/
 ARG UID=1000
-# グループIDをセット
 ARG GID=1000
-# コンテナ内に名称dockerでグループを作成
 RUN groupadd -g ${GID} ubuntu
-# コンテナ内に名称dockerでdockerグループに所属するユーザーを作成
 RUN useradd -u ${UID} -g ${GID} -s /bin/bash -m ubuntu
-# コンテナを実行するユーザーを指定
-USER ${UID}
