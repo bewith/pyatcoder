@@ -3,6 +3,17 @@ import sys
 
 
 def solve(N: int, a: "List[int]"):
+    x = 0
+    y = 0
+    turnX = True
+    for i in sorted(a, reverse=True):
+        if turnX:
+            x += i
+        else:
+            y += i
+        turnX = not(turnX)
+
+    print(x - y)
     return
 
 
