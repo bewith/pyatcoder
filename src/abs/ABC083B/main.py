@@ -3,6 +3,14 @@ import sys
 
 
 def solve(N: int, A: int, B: int):
+    ret = 0
+    for i in range(1, N+1):
+        sum = 0
+        for c in str(i):
+            sum += int(c)
+        if sum >= A and sum <= B:
+            ret += i
+    print(ret)
     return
 
 
